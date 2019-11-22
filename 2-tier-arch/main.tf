@@ -15,11 +15,11 @@ module "iam" {
 
 module "security-group" {
   source=./modules/security-groups"
-
+  
   vpc_id = "${module.vpc.out_vpc_id}"
   aws_region = "${var.aws_region}"
   vpc_cidr_block = "${module.vpc.out_vpc_cidr_block}"
-
+  
 }
 
 module "instance" {
@@ -34,7 +34,7 @@ module "instance" {
   web_server_sg_id = "${module.security-group.out_web_server_sg_id}"
   db_engine = "${var.db_engine}"
   engine_version = "${var.engine_version}"
-  db_instance_class = "{var.db_instance_class}"
+  db_instance_class = "{var.db_instance_class}" 
   db_identifier = "${var.db_identifier}"
   db_name = "{var.db_name}"
   db_username = "{var.db_username}"
@@ -55,4 +55,4 @@ module "instance" {
 
 
 
-  
+
